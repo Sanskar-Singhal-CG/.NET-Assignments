@@ -18,6 +18,12 @@ public class ProductsController : ControllerBase
         _repository = repository;
     }
 
+    [HttpGet("health")]
+    public IActionResult HealthCheck()
+    {
+        return Ok(new { status = "Healthy" });
+    }
+
     [HttpGet]
     public async Task<ActionResult<IEnumerable<Product>>> GetAll()
     {
